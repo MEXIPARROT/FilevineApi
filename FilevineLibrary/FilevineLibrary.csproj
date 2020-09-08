@@ -59,13 +59,17 @@
   <ItemGroup>
     <Compile Include="FilevineWebAPI\FilevineOperatingAccounts.cs" />
     <Compile Include="FilevineWebAPI\FilevineContacts.cs" />
+    <Compile Include="FilevineWebAPI\FilevineProjects.cs" />
     <Compile Include="FilevineWebAPI\Objects\addresses\addresses.cs" />
     <Compile Include="FilevineWebAPI\Objects\addresses\addressesId.cs" />
     <Compile Include="FilevineWebAPI\Objects\OperatingAccount.cs" />
     <Compile Include="FilevineWebAPI\Objects\dataObject.cs" />
     <Compile Include="FilevineWebAPI\Objects\itemId.cs" />
     <Compile Include="FilevineWebAPI\Objects\Expense.cs" />
+    <Compile Include="FilevineWebAPI\Objects\projects.cs" />
+    <Compile Include="FilevineWebAPI\Objects\projectTypeId.cs" />
     <Compile Include="FilevineWebAPI\Request\OperatingAccountRequest.cs" />
+    <Compile Include="FilevineWebAPI\Request\ProjectNumberRequest.cs" />
     <Compile Include="FilevineWebAPI\Response\OperatingAccountResponse.cs" />
     <Compile Include="FilevineWebAPI\Objects\emails\emailId.cs" />
     <Compile Include="FilevineWebAPI\Objects\emails\emails.cs" />
@@ -79,6 +83,8 @@
     <Compile Include="FilevineWebAPI\Objects\projectId.cs" />
     <Compile Include="FilevineWebAPI\Request\ContactRequest.cs" />
     <Compile Include="FilevineWebAPI\Response\ContactResponse.cs" />
+    <Compile Include="FilevineWebAPI\Response\ProjectNumberResponse.cs" />
+    <Compile Include="FilevineWebAPI\Response\ProjectTypeResponse.cs" />
     <Compile Include="FilevineWebClient.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="FilevineCollection.cs" />

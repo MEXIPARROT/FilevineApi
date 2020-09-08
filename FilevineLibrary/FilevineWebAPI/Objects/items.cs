@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace FilevineLibrary.FilevineWebAPI.Objects
 {
     public class items
-    { //bruh 33 lines
+    {
         [JsonProperty("sectionSelector")]
         public string sectionSelector { get; set; }
 
@@ -106,6 +106,12 @@ namespace FilevineLibrary.FilevineWebAPI.Objects
                 
         [JsonProperty("searchNames")]
         public List<string> searchNames { get; set; }
+
+        [JsonProperty("itemId")]
+        public itemId itemId { get; set; }
+
+        [JsonProperty("dataObject")]
+        public dataObject dataObject { get; set; }
 
         [JsonProperty("links")]
         public link links { get; set; }

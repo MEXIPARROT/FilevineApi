@@ -21,9 +21,9 @@ namespace FilevineLibrary.FilevineWebAPI
         
         public OperatingAccountResponse GetOperatingAccountItemList()
         {
-            var projectId = "7570383"; //7399078 used to be because of expenses
+            var projectId = "7673878"; //7399078 used to be because of expenses
             var OperatingAccountResponse = new OperatingAccountResponse();// webClient);
-            var sectionSelector = "operatingAccounts"; //shot in dark bc worst case I need to check with projtype function from old prog
+            var sectionSelector = "operatingAccounts"; 
             var res = webClient.GetRequest($"core/projects/{projectId}/collections/{sectionSelector}");
             try
             {
@@ -38,12 +38,12 @@ namespace FilevineLibrary.FilevineWebAPI
             return OperatingAccountResponse;
         }
 
-        public OperatingAccountResponse PostCollectionItem(OperatingAccountRequest request, string userinput)//Expense request)//string fName, mName, lName, ssn, birthDate, gender)
+        public OperatingAccountResponse PostCollectionItem(long projectID, OperatingAccountRequest request, string collectionPartnerID)//Expense request)//string fName, mName, lName, ssn, birthDate, gender)
         {
             var operatingAccountResponse = new OperatingAccountResponse();
-            var projectId = "7570383";//proj num
+            var projectId = projectID;//proj num
             var sectionSelector = "operatingAccounts";
-            request.itemId.partner = userinput;
+            request.itemId.partner = collectionPartnerID;
 
             var res = webClient.PostRequest($"core/projects/{projectId}/collections/{sectionSelector}/", request.ToJSON());//7229227 my project "@"post by partnerID
             try
@@ -56,6 +56,26 @@ namespace FilevineLibrary.FilevineWebAPI
             }
             return operatingAccountResponse;
         }
-        
+
+        public OperatingAccountResponse PatchCollectionItem(long projectID, OperatingAccountRequest request, string collectionPartnerID)//Expense request)//string fName, mName, lName, ssn, birthDate, gender)
+        {
+            var operatingAccountResponse = new OperatingAccountResponse();
+            var projectId = projectID;//proj num
+            var sectionSelector = "operatingAccounts";
+            request.itemId.partner = collectionPartnerID;
+
+            var res = webClient.UpdateRequest($"core/projects/{projectId}/collections/{sectionSelector}/@{collectionPartnerID}", request.ToJSON());//7229227 my project "@"post by partnerID
+            try
+            {
+                Console.WriteLine("INPATCH");
+                Console.WriteLine(res);
+                operatingAccountResponse = OperatingAccountResponse.FromJSON(res);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return operatingAccountResponse;
+        }
     }
 }

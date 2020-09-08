@@ -64,6 +64,17 @@ namespace FilevineLibrary.FilevineWebAPI.Objects
             return expense;
         }
 
+        public void ToRemoved()
+        {
+            type = "";
+            checkNumber = "";
+            invoice = 0;
+            ExplCode = "";
+            Explanation = "Removed Entry";
+            RcptsAmount = 0;
+            DisbsAmount = 0;
+        }
+
         public string ToJSON()
         {
             return JsonConvert.SerializeObject(this);
